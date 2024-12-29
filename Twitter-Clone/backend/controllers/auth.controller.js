@@ -1,6 +1,7 @@
 import User from '../models/user.model.js';
 import bcrypt from 'bcryptjs';
 import { generateTokenAndSetCookie } from '../utils/generateToken.js';
+import { protectRoute } from '../middlewares/auth.middleware.js';
 
 
 export const getMe = async (req, res) => {
@@ -99,8 +100,10 @@ export const login = async (req, res) => {
 }
 export const logout= async (req, res) => {
     try {
+        const username = req.user?.username || "Unknown User";
+        // const user = await User.findById(req.user._id);
         res.cookie("jwt","",{maxAge:0}); //setting the jwt cookie to empty string and maxAge to 1ms so that it expires immediately
-        res.status(200).json({message:`Logged out successfully`});
+        res.status(200).json({message:`${username} Logged out successfully`});
     } catch (error) {
         console.log("Error in logout controller: ",error);
         res.status(500).json({error:"Internal server error"});
