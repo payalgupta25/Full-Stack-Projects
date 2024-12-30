@@ -22,6 +22,7 @@ app.use(cookieParser());  //to convert cookie string to object and attach it to 
 
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/posts', postRoutes);
 
 
 
