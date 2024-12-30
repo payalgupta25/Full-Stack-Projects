@@ -5,6 +5,7 @@ import Notification from "../models/notification.model.js";
 //others
 import bcrypt from "bcryptjs";
 import {v2 as cloudinary} from "cloudinary";
+import { likePost } from "./post.controller.js";
 
 
 export const getUsersProfile = async (req, res) => {
@@ -25,6 +26,9 @@ export const getUsersProfile = async (req, res) => {
             coverImg:user.coverImg,
             followers:user.followers,
             following:user.following,
+            bio:user.bio,
+            link:user.link,
+            likePosts:user.likedPosts,
         });
 
     } catch (error) {
