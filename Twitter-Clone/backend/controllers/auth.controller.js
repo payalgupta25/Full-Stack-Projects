@@ -58,7 +58,7 @@ export const signup = async (req, res) => {
                 coverImg:newUser.coverImg,
                 followers:newUser.followers,
                 following:newUser.following,
-            })
+            });
         }else{
             return res.status(400).json({error:"Something went wrong"});
         }

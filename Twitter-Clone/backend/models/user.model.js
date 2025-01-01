@@ -33,12 +33,12 @@ const userSchema = new mongoose.Schema(
 
         profileImg:{
             type:String,
-            default:"https://res.cloudinary.com/dj7k9b8ps/image/upload/v1627967483/defaultProfilePic_qjvz0i.png"
+            default:""
         },
 
         coverImg:{
             type:String,
-            default:"https://res.cloudinary.com/dj7k9b8ps/image/upload/v1627967483/defaultCoverPic_zq2k3o.png"
+            default:""
         },
 
         followers:[
