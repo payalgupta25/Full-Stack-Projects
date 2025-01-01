@@ -17,8 +17,8 @@ cloudinary.config({
 
 const app = express();
 
-
-app.use(express.json());  // to parse JSON data in the request body
+//limit should be less than 200mb to prevent DOS attack 
+app.use(express.json({limit:"5mb"}));  // to parse JSON data in the request body
 app.use(express.urlencoded({ extended: true })); // to parse form data in the request body
 app.use(cookieParser());  //to convert cookie string to object and attach it to req.cookies , means we can access cookies in req.cookies
 
